@@ -3,7 +3,10 @@
     <h3>Store</h3>
     <ul>
       <li [routerLink]="['/products']">Products</li>
-      <li [routerLink]="['/cart']"><fa-icon [icon]="faCartShopping"></fa-icon></li>
+      <li [routerLink]="['/cart']">
+        <fa-icon [icon]="faCartShopping"></fa-icon>
+        <span>0</span>
+      </li>
     </ul>
   </div>
 </nav>
