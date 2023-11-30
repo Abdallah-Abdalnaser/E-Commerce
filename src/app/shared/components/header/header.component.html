@@ -2,8 +2,8 @@
   <div class="container">
     <h3>Store</h3>
     <ul>
-      <li>Products</li>
-      <li><fa-icon [icon]="faCartShopping"></fa-icon></li>
+      <li [routerLink]="['/products']">Products</li>
+      <li [routerLink]="['/cart']"><fa-icon [icon]="faCartShopping"></fa-icon></li>
     </ul>
   </div>
 </nav>

@@ -30,6 +30,9 @@ nav {
           size: 17px;
         }
         transition: 0.3s;
+        &.active {
+          color: $mainColor;
+        }
         &:hover {
           color: $mainColor;
         }
