@@ -4,7 +4,6 @@ import { AllProductsComponent } from './components/all-products/all-products.com
 import { ProductsDetailsComponent } from './components/products-details/products-details.component';
 
 
-
 @NgModule({
   declarations: [
     AllProductsComponent,

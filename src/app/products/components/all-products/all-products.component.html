@@ -3,30 +3,24 @@
     <div class="col-md-3">
       <label for="categories" class="mb-2">Categories:</label>
       <select name="Categories" class="form-control">
-        <option value="option 1">option 1</option>
-        <option value="option 2">option 2</option>
-        <option value="option 3">option 3</option>
-        <option value="option 4">option 4</option>
+        <option *ngFor="let catigory of catigories" value="{{catigory}}">{{catigory}}</option>
       </select>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-3" *ngFor="let product of products">
       <div class="item">
         <figure>
-          <img src="https://m.media-amazon.com/images/I/61IrEgdqMZL._AC_SY445_.jpg">
+          <img src={{product.image}}>
         </figure>
         <figcaption>
           <div class="data">
-            <h4>Name Of Product</h4>
-            <p>
-              Lorem ipsum dolor sit amet elit.
-              Saepe adipisci ipsam quibusdam delectus ratione qui,
-            </p>
+            <h4>{{product.title}}</h4>
+            <p>{{product.description}}</p>
           </div>
           <div class="PriceAndSell">
             <button type="button" class="btn btn-primary">Add To Cart</button>
-            <span>50 LE</span>
+            <span>{{product.price}} LE</span>
           </div>
         </figcaption>
       </div>
