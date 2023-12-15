@@ -12,16 +12,19 @@ export class AllProductsComponent implements OnInit {
 
   constructor(private product:ProductsService) {}
 
-  ngOnInit(): void {
+  ngOnInit():void {
     this.getAllProduct();
     this.getCatigories();
+    setTimeout(() => {
+      console.log(this.catigories);
+      console.log(this.products);
+    }, 2000);
   }
 
   getAllProduct() {
     this.product.GetAllproducts().subscribe(
       (data:any) =>{
         this.products = data
-        console.log(this.products);
       }
     )
   }
@@ -30,8 +33,6 @@ export class AllProductsComponent implements OnInit {
     this.product.GetCategory().subscribe(
       (data:any)=> {
         this.catigories = data
-        console.log(this.catigories);
-
       }
     )
   }

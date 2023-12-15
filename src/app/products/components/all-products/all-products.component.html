@@ -15,8 +15,8 @@
         </figure>
         <figcaption>
           <div class="data">
-            <h4>{{product.title}}</h4>
-            <p>{{product.description}}</p>
+            <h4>{{product.title | shortPipeTs:10}}</h4>
+            <p>{{product.description | shortPipeTs:80}}</p>
           </div>
           <div class="PriceAndSell">
             <button type="button" class="btn btn-primary">Add To Cart</button>
