@@ -15,10 +15,6 @@ export class AllProductsComponent implements OnInit {
   ngOnInit():void {
     this.getAllProduct();
     this.getCatigories();
-    setTimeout(() => {
-      console.log(this.catigories);
-      console.log(this.products);
-    }, 2000);
   }
 
   getAllProduct() {
