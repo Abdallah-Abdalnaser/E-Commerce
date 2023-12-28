@@ -2,13 +2,13 @@
   <div class="row">
     <div class="col-md-3">
       <label for="categories" class="mb-2">Categories:</label>
-      <select name="Categories" class="form-control">
+      <select name="Categories" class="form-control" #optionValue (change)="filterProduct(optionValue.value)">
         <option *ngFor="let catigory of catigories" value="{{catigory}}">{{catigory}}</option>
       </select>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-3" *ngFor="let product of products">
+  <div class="row" (click)="test()" >
+    <div class="col-md-3" *ngFor="let product of products" [routerLink]="['/detail',product.id]">
       <div class="item">
         <figure>
           <img src={{product.image}}>

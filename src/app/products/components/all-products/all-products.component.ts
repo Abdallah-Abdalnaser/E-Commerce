@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
+import { Product } from '../../product.model';
 
 @Component({
   selector: 'app-all-products',
@@ -7,7 +8,7 @@ import { ProductsService } from '../../services/products.service';
   styleUrls: ['./all-products.component.scss']
 })
 export class AllProductsComponent implements OnInit {
-  products!:any[];
+  products!:Product[];
   catigories!:string[];
 
   constructor(private product:ProductsService) {}
@@ -28,8 +29,20 @@ export class AllProductsComponent implements OnInit {
   getCatigories() {
     this.product.GetCategory().subscribe(
       (data:any)=> {
-        this.catigories = data
+        this.catigories = ['All',...data];
       }
     )
+  }
+
+  filterProduct(selectValue:string) {
+    this.product.GetproductsByCategory(selectValue).subscribe(
+      (data:any) => {
+        this.products = data;
+      }
+    )
+  }
+
+  test() {
+    console.log('hi');
   }
 }
