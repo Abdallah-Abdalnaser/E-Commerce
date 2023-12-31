@@ -1,4 +1,5 @@
 <div class="box">
+  <!-- catigorey -->
   <div class="row">
     <div class="col-md-3">
       <label for="categories" class="mb-2">Categories:</label>
@@ -7,14 +8,15 @@
       </select>
     </div>
   </div>
-  <div class="row" (click)="test()" >
-    <div class="col-md-3" *ngFor="let product of products" [routerLink]="['/detail',product.id]">
+  <!-- cards -->
+  <div class="row" *ngIf="!isfetch">
+    <div class="col-md-3" *ngFor="let product of products">
       <div class="item">
-        <figure>
+        <figure [routerLink]="['/detail',product.id]">
           <img src={{product.image}}>
         </figure>
-        <figcaption>
-          <div class="data">
+        <figcaption >
+          <div class="data"  [routerLink]="['/detail',product.id]">
             <h4>{{product.title | shortPipeTs:10}}</h4>
             <p>{{product.description | shortPipeTs:80}}</p>
           </div>
@@ -24,6 +26,12 @@
           </div>
         </figcaption>
       </div>
+    </div>
+  </div>
+  <!-- spinner -->
+  <div class="row d-flex justify-content-center mt-5">
+    <div class="spinner-border text-primary" role="status" *ngIf="isfetch">
+      <span class="sr-only">Loading...</span>
     </div>
   </div>
 </div>

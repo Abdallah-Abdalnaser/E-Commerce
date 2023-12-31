@@ -10,6 +10,7 @@ import { ProductsService } from '../../services/products.service';
   styleUrls: ['./products-details.component.scss']
 })
 export class ProductsDetailsComponent implements OnInit{
+  isfetch:boolean = false;
   product!:Product;
   faCheckCircle:IconDefinition=faCheckCircle;
   faCircleExclamation:IconDefinition=faCircleExclamation;
@@ -17,10 +18,12 @@ export class ProductsDetailsComponent implements OnInit{
   constructor(private ProductsService:ProductsService , private route:ActivatedRoute) {}
 
   ngOnInit(): void {
+    this.isfetch = true;
     this.route.params.subscribe(
       (data:Params)=> {
         this.ProductsService.getProductByid(+data['id']).subscribe(
           (data:any) => {
+            this.isfetch = false;
             this.product = data;
           }
         );

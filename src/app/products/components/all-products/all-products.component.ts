@@ -10,18 +10,22 @@ import { Product } from '../../product.model';
 export class AllProductsComponent implements OnInit {
   products!:Product[];
   catigories!:string[];
+  isfetch!:boolean;
 
   constructor(private product:ProductsService) {}
 
   ngOnInit():void {
+
     this.getAllProduct();
     this.getCatigories();
   }
 
   getAllProduct() {
+    this.isfetch = true
     this.product.GetAllproducts().subscribe(
       (data:any) =>{
-        this.products = data
+        this.isfetch = false;
+        this.products = data;
       }
     )
   }
@@ -35,14 +39,12 @@ export class AllProductsComponent implements OnInit {
   }
 
   filterProduct(selectValue:string) {
+    this.isfetch = true
     this.product.GetproductsByCategory(selectValue).subscribe(
       (data:any) => {
+        this.isfetch = false;
         this.products = data;
       }
     )
-  }
-
-  test() {
-    console.log('hi');
   }
 }
