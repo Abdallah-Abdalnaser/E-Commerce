@@ -2,6 +2,11 @@
 @use '../../../scss/mixin.scss' as *;
 
 .row {
+  &:first-of-type {
+    background-color: white;
+    padding: 10px;
+    border-radius: 25px;
+  }
   .col-md-5 {
     gap: 250px;
     display: flex;
