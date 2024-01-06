@@ -1,0 +1,68 @@
+@use '../../../../scss/variable.scss' as *;
+@use '../../../../scss/mixin.scss' as *;
+// flexbox
+%flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.row {
+  &:not(:last-of-type) {
+    background-color: white;
+  }
+  border-bottom: 1px solid #eee;
+  margin: 0px 5px;
+  &:nth-child(1) {
+    h5 {
+      @include breakpoint(small) {
+        font-size: 15px;
+      }
+      padding: 15px;
+      color: $mainColor;
+    }
+  }
+  &:nth-child(2) {
+    @include breakpoint(small) {
+      font-size: 12px;
+    }
+    .subtotal {
+      @extend %flex;
+      margin-top: 15px;
+    }
+    .shipping {
+      @extend %flex;
+    }
+    span {
+      color: $mainColor;
+      &.Coupon {
+        @include breakpoint(small) {
+          font-size: 12px;
+        }
+        text-decoration: underline;
+        font-size: 14px;
+        cursor: pointer;
+      }
+    }
+    .Total {
+      @extend %flex;
+      padding:15px 15px;
+      background-color: #ccc;
+      color: black;
+      margin-top: 15px;
+      p {
+        margin: 0px;
+      }
+    }
+  }
+}
+
+button {
+  width: 100%;
+  border: 0px;
+  // border-radius: 15px;
+  background-color: $mainColor;
+  color: white;
+  padding: 10px;
+  margin-top: 10px;
+}
