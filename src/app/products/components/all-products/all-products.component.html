@@ -21,7 +21,7 @@
             <p>{{product.description | shortPipeTs:80}}</p>
           </div>
           <div class="PriceAndSell">
-            <button type="button" class="btn btn-primary">Add To Cart</button>
+            <button type="button" class="btn btn-primary" (click)="add(product.id,product.title,product.price,product.image)" [routerLink]="['/cart']">Add To Cart</button>
             <span>{{product.price}} LE</span>
           </div>
         </figcaption>

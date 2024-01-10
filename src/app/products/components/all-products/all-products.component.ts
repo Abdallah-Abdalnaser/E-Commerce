@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
 import { Product } from '../../product.model';
+import { CartService } from 'src/app/carts/services/cart.service';
+import { ItemCart } from 'src/app/carts/cart.model';
 
 @Component({
   selector: 'app-all-products',
@@ -12,10 +14,9 @@ export class AllProductsComponent implements OnInit {
   catigories!:string[];
   isfetch!:boolean;
 
-  constructor(private product:ProductsService) {}
+  constructor(private product:ProductsService ,private CartService:CartService) {}
 
   ngOnInit():void {
-
     this.getAllProduct();
     this.getCatigories();
   }
@@ -46,5 +47,12 @@ export class AllProductsComponent implements OnInit {
         this.products = data;
       }
     )
+  }
+
+  add(id:number,title:string,price:number,img:string) {
+    this.CartService.addToCart(new ItemCart (id,img,title,price,1));
+    let audio = new Audio();
+    audio.src='../../../../assets/sound/Add.mp3';
+    audio.play();
   }
 }

@@ -6,56 +6,33 @@
     <td>{{'total' | uppercase}}</td>
     <td></td>
   </thead>
-  <tr>
+  <tr *ngFor="let item of items">
     <td>
       <figure>
-        <img src="https://cdn.shopify.com/s/files/1/0070/7032/files/image5_4578a9e6-2eff-4a5a-8d8c-9292252ec848.jpg?v=1620247043">
+        <img src={{item.productImage}}>
       </figure>
       <figcaption>
-        <span>Camera</span>
+        <span>{{item.prductName | shortes:10}}</span>
       </figcaption>
     </td>
     <td>
-      $ 125
+      $ {{item.price}}
     </td>
     <td>
       <div class="quantity">
-        <span>-</span>
-        <span>2</span>
-        <span>+</span>
+        <span (click)="des(item)">-</span>
+        <span>{{item.quantity}}</span>
+        <span (click)="inc(item)">+</span>
       </div>
     </td>
     <td>
-      $ 250
+      $ {{total(item.price,item.quantity)}}
     </td>
-    <td>
+    <td (click)="delete(item.id)">
       <fa-icon [icon]="faX"></fa-icon>
     </td>
   </tr>
-  <tr>
-    <td>
-      <figure>
-        <img src="https://cdn.shopify.com/s/files/1/0070/7032/files/image5_4578a9e6-2eff-4a5a-8d8c-9292252ec848.jpg?v=1620247043">
-      </figure>
-      <figcaption>
-        <span>Camera</span>
-      </figcaption>
-    </td>
-    <td>
-      $ 125
-    </td>
-    <td>
-      <div class="quantity">
-        <span>-</span>
-        <span>2</span>
-        <span>+</span>
-      </div>
-    </td>
-    <td>
-      $ 250
-    </td>
-    <td>
-      <fa-icon [icon]="faX"></fa-icon>
-    </td>
+  <tr *ngIf="noItem">
+    <td colSpan="5" class="noitem">no items</td>
   </tr>
 </table>

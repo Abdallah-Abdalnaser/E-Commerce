@@ -12,5 +12,4 @@ export class ShortPipeTsPipe implements PipeTransform {
       return `${value.substring(0,length) }...`;
     }
   }
-
 }

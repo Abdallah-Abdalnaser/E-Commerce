@@ -5,7 +5,7 @@
       <li [routerLink]="['/products']">Products</li>
       <li [routerLink]="['/cart']">
         <fa-icon [icon]="faCartShopping"></fa-icon>
-        <span>0</span>
+        <span *ngIf="!(numberOfItem === 0) ">{{numberOfItem}}</span>
       </li>
     </ul>
   </div>

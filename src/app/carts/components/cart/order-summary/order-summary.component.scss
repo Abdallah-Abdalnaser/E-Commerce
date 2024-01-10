@@ -14,7 +14,11 @@
   border-bottom: 1px solid #eee;
   margin: 0px 5px;
   &:nth-child(1) {
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
     h5 {
+      border-top-right-radius: 10px;
+      border-top-left-radius: 10px;
       @include breakpoint(small) {
         font-size: 15px;
       }
@@ -23,15 +27,15 @@
     }
   }
   &:nth-child(2) {
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
     @include breakpoint(small) {
       font-size: 12px;
     }
-    .subtotal {
+    .subtotal,
+    .totla {
       @extend %flex;
-      margin-top: 15px;
-    }
-    .shipping {
-      @extend %flex;
+      margin-top: 5px 0px;
     }
     span {
       color: $mainColor;
@@ -44,25 +48,16 @@
         cursor: pointer;
       }
     }
-    .Total {
-      @extend %flex;
-      padding:15px 15px;
-      background-color: #ccc;
-      color: black;
-      margin-top: 15px;
-      p {
-        margin: 0px;
-      }
-    }
   }
 }
 
 button {
   width: 100%;
   border: 0px;
-  // border-radius: 15px;
+
   background-color: $mainColor;
   color: white;
   padding: 10px;
   margin-top: 10px;
+  border-radius: 10px;
 }
