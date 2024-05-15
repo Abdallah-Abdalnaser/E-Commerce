@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule,provideClientHydration } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SharedModule } from './shared/shared.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NgCircleProgressModule } from 'ng-circle-progress';
+import { ProductsModule } from './products/products.module';
+import { CartsModule } from './carts/carts.module';
 
 @NgModule({
   declarations: [
@@ -13,22 +15,10 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    SharedModule,
     FontAwesomeModule,
-    HttpClientModule,
-    NgCircleProgressModule.forRoot({
-      "radius": 60,
-      "space": -10,
-      "outerStrokeGradient": true,
-      "outerStrokeWidth": 10,
-      "innerStrokeWidth": 10,
-      "title": "UI",
-      "animateTitle": false,
-      "animationDuration": 1000,
-      "showUnits": false,
-      "showBackground": false,
-      "clockwise": false,
-      "startFromZero": false,
-      "lazy": true}),
+    ProductsModule,
+    CartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
