@@ -1,7 +1,0 @@
-@use '../.././../scss/mixin.scss' as *;
-
-.col-md-3 {
-  @include breakpoint(mobile) {
-    margin-top: 10px;
-  }
-}
